@@ -15,7 +15,7 @@ public class ChasseAuxPokemons {
 		// TP 10
 		final Map<String, Integer> mappePokemons = new HashMap<>();
 		
-		try(FileReader lecteur = new FileReader("C:/Users/crist/eclipse-workspace/TP10/src/tp10/pokedexComplet.txt")){
+		try(FileReader lecteur = new FileReader("C:\\Users\\mtcac\\eclipse-workspace\\tp11.1\\src\\tp10\\pokedexComplet.txt")){
 			Scanner s = new Scanner(lecteur);
 			while (s.hasNext()) {
 				int numeroPokedex = s.nextInt();
@@ -40,7 +40,7 @@ public class ChasseAuxPokemons {
 		mappeAttaques.put("coupDeTete", new AttaqueCoupDeTete());
 
 		final ArrayList<Pokemon> pokemonList = new ArrayList<>();
-		try(FileReader lecteur = new FileReader("C:/Users/crist/eclipse-workspace/TP9/src/tp9/InputFile.txt")){
+		try(FileReader lecteur = new FileReader("C:\\Users\\mtcac\\eclipse-workspace\\tp11.1\\src\\tp10\\InputFile.txt")){ //A CHANGER
 			Scanner s = new Scanner(lecteur);
 			while(s.hasNext()) {
 				String nom = s.next();
@@ -112,61 +112,17 @@ public class ChasseAuxPokemons {
 		jeanDupont.capturer(totodile);
 		jeanDupont.nommer(totodile, "Schnappi");
 
-		Bataille batailleok= new Bataille(piplup,rowlet);
+		
 		// TP 6
 		// une bataille entre piplup et rowlet
-		/*
-		Scanner lecteur = new Scanner(System.in);
-		System.out.println();
 		
 		final Pokemon p1 = piplup;
 		final Pokemon p2 = rowlet;
+		//final Bataille p = new Bataille(p1, p2);
+		//p.run();
 		
-		boolean batailleFinie = false;
-	
-		while (!batailleFinie) {
-			if (p1.sEstEvanoui() || p2.sEstEvanoui()) {
-				batailleFinie = true;
-			}
-			if(!batailleFinie) {
-				p1.regarderAttaques();
-				System.out.println("Pour pokemon" +p1.getNom() + ", choisissez l'index de votre attaque contre le pokemon " + p2.getNom());
-				int reponseIndex = lecteur.nextInt();
-				while (reponseIndex < 0 || reponseIndex > p1.getSesAttaques().length) {
-					System.out.println("Refaites votre choix.");
-					reponseIndex = lecteur.nextInt();
-				}
-				p1.utiliseAttaque(reponseIndex, p2);
-				if (p2.sEstEvanoui()) {
-					batailleFinie = true;
-				}
-			}
-			
-			if(!batailleFinie && !p2.sEstEvanoui()) {
-				p2.regarderAttaques();
-				System.out.println("Pour pokemon" +p2.getNom() + ", choisissez l'index votre attaque contre le pokemon " + p1.getNom());
-				int reponseIndex = lecteur.nextInt();
-				while (reponseIndex < 0 || reponseIndex > p2.getSesAttaques().length) {
-					System.out.println("Refaites votre choix.");
-					reponseIndex = lecteur.nextInt();
-				}
-				p2.utiliseAttaque(reponseIndex, p1);
-				if (p1.sEstEvanoui()) {
-					batailleFinie = true;
-				}
-			}
-		}
-
-		if (p1.sEstEvanoui()) {
-			System.out.println("Le vainqueur est " + p2.getNom());
-		}
-		else {
-			System.out.println("Le vainqueur est " + p1.getNom());
-		}
 		
-		p1.resetAttaques();
-		p2.resetAttaques();
-		*/
+		
 		
 		// TP 7
 		final Jouet balle = new Jouet("balle", 20, 30, 10, 15, 5);
@@ -188,7 +144,7 @@ public class ChasseAuxPokemons {
 		// TP 10
 		
 		try {
-			jeanDupont.getPokedex().charger("C:/Users/crist/eclipse-workspace/TP10/src/tp10/jeanDupontPokedex.txt");
+			jeanDupont.getPokedex().charger("/ChasseaupokTP7/src/tp10/jeanDupontPokedex.txt");
 		}
 		catch (FileNotFoundException e) {
 			System.err.println("Je ne peux pas charger le pokedex du joueur " +jeanDupont.getPrenom() + " " +jeanDupont.getNom() + ". Ce fichier n'existe encore pas, mais il sera genere lors de votre prochaine session.");
@@ -205,7 +161,7 @@ public class ChasseAuxPokemons {
 		}
 		
 		try {
-			jeanDupont.getPokedex().sauvegarder("C:/Users/crist/eclipse-workspace/TP10/src/tp10/jeanDupontPokedex.txt");
+			jeanDupont.getPokedex().sauvegarder("/ChasseaupokTP7/src/tp10/jeanDupontPokedex.txt");
 		}
 		catch (IOException e) {
 			System.err.println("Je ne peux pas sauvegarder le pokedex du joueur " + jeanDupont.getPrenom() + " " +jeanDupont.getNom());
