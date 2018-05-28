@@ -214,7 +214,8 @@ public class ChasseAuxPokemons {
 			System.err.println("Je ne peux pas sauvegarder le pokedex du joueur " + jeanDupont.getPrenom() + " " +jeanDupont.getNom());
 			e.printStackTrace();
 		}
-		
+		Bataille maBataille = new Bataille(piplup, rowlet);
+		maBataille.run();
 	}
 	
 
