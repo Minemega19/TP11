@@ -112,7 +112,7 @@ public class ChasseAuxPokemons {
 		jeanDupont.capturer(totodile);
 		jeanDupont.nommer(totodile, "Schnappi");
 
-		
+		Bataille batailleok= new Bataille(piplup,rowlet);
 		// TP 6
 		// une bataille entre piplup et rowlet
 		/*
