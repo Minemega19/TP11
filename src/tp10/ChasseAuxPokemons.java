@@ -1,11 +1,12 @@
 package tp10;
-import java.util.Scanner;
-import java.util.Map;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
+import java.util.Scanner;
 
 
 public class ChasseAuxPokemons {
@@ -15,18 +16,20 @@ public class ChasseAuxPokemons {
 		// TP 10
 		final Map<String, Integer> mappePokemons = new HashMap<>();
 		
-		try(FileReader lecteur = new FileReader("C:\\Users\\mtcac\\eclipse-workspace\\tp11.1\\src\\tp10\\pokedexComplet.txt")){
+		try(FileReader lecteur = new FileReader("C:\\Users\\iut\\Desktop\\TP11-master\\pokedexComplet.txt")){
 			Scanner s = new Scanner(lecteur);
 			while (s.hasNext()) {
 				int numeroPokedex = s.nextInt();
 				String nom = s.next();
 				mappePokemons.put(nom, numeroPokedex);
+				lecteur.close();
+				s.close();
 			}
 		}
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		
 		// nos attaques
 		final Map<String, Attaque> mappeAttaques = new HashMap<>();
@@ -43,7 +46,7 @@ public class ChasseAuxPokemons {
 
 
 		final ArrayList<Pokemon> pokemonList = new ArrayList<>();
-		try(FileReader lecteur = new FileReader("C:\\Users\\mtcac\\eclipse-workspace\\tp11.1\\src\\tp10\\InputFile.txt")){
+		try(FileReader lecteur = new FileReader("C:\\Users\\iut\\Desktop\\TP11-master\\InputFile.txt")){
 			Scanner s = new Scanner(lecteur);
 			while(s.hasNext()) {
 				String nom = s.next();
@@ -70,6 +73,7 @@ public class ChasseAuxPokemons {
 				}
 				pokemonList.add(new Pokemon(numeroPokedex, nom, type, niveau, diurne, attaque, defense, attaqueSpeciale, defenseSpeciale, sesAttaquesTableau));
 			}
+			s.close();
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -100,7 +104,9 @@ public class ChasseAuxPokemons {
 		// TP 3
 		
 		// la nourriture
+		@SuppressWarnings("unused")
 		final Nourriture tartiflette = new Nourriture("tartiflette", 30, 35, new String[] {"DRAGON", "FEU", "COMBAT", "EAU", "ELECTRIQUE"});
+		@SuppressWarnings("unused")
 		final Nourriture ratatouille = new Nourriture("ratatouille", 30, 10, new String[] {"PLANTE", "EAU", "VOL", "FEU", "NORMAL", "ELECTRIQUE", "COMBAT"}); 
 
 		// TP 4
@@ -208,7 +214,7 @@ public class ChasseAuxPokemons {
 		}
 		
 		try {
-			jeanDupont.getPokedex().sauvegarder("C:\\Users\\mtcac\\eclipse-workspace\\tp11.1\\src\\tp10\\jeanDupontPokedex.txt");
+			jeanDupont.getPokedex().sauvegarder("C:\\Users\\iut\\Desktop\\TP11-master\\src\\tp10\\jeanDupontPokedex.txt");
 		}
 		catch (IOException e) {
 			System.err.println("Je ne peux pas sauvegarder le pokedex du joueur " + jeanDupont.getPrenom() + " " +jeanDupont.getNom());

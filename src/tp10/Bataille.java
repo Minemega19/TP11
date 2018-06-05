@@ -1,7 +1,5 @@
 package tp10;
 import java.util.Scanner;
-import java.io.IOException;
-import java.io.*;
 
 
 public class Bataille {
@@ -68,6 +66,6 @@ public void run() {
 			
 			p1.resetAttaques();
 			p2.resetAttaques();
-			
+			lecteur.close();
 }
 }
